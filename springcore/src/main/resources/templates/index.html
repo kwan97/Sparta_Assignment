@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline Service</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="basic.js"></script>
+    <meta property="og:title" content="Timeline Service">
+    <meta property="og:description" content="사소한 메모라도 적어보세요!">
+    <meta property="og:image" content="images/timelineservice.png">
+</head>
+
+<body>
+
+<!--<div class="background-body">-->
+
+<!--</div>-->
+<div style="position: relative; height: 100vh; width: 100%;">
+    <div class="background-header">
+    </div>
+    <div class="background-body">
+    </div>
+<div class="wrap">
+
+        <div class="header">
+            <h2>Timeline Service</h2>
+            <p>
+                <span th:text="${username}"></span>님 안녕하세요!<br>
+                공유하고 싶은 소식을 입력해주세요.
+            </p>
+        </div>
+        <div class="area-write" style="box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); background-color: #ffffff;border-radius: 5px; border: none;">
+            <input type="text" name="member_name" id="title" style="border-radius: 5px;margin-left: 10px ;border: none;height: 30px; width:200px; font-size:15px;" placeholder="제목 입력" >
+                <textarea class="field" placeholder="공유하고 싶은 소식을 입력해주세요" name="contents" id="contents" cols="30"
+                          rows="10"></textarea>
+            <!--            <button class="btn btn-danger" onclick="writePost()">작성하기</button>-->
+            <img src="../images/send.png" alt="" onclick="writePost()">
+        </div>
+        <div id="cards-box" class="area-read">
+            <div class="card">
+            </div>
+        </div>
+</div>
+
+    </div>
+</body>
+
+</html>

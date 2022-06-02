@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline Service</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/commentJs.js"></script>
+</head>
+
+<body>
+<div style="position: relative; height: 100vh; width: 100%;">
+    <div class="background-header">
+    </div>
+    <div class="background-body">
+    </div>
+    <div class="wrap">
+
+        <div class="header">
+            <h2>Timeline Service</h2>
+            <p>
+                <span th:text="${username}"></span>님 안녕하세요!<br>
+                소중한 댓글 남겨주세요.
+            </p>
+        </div>
+        <div class="area-write" style="box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); background-color: #ffffff;border-radius: 5px; border: none;margin-bottom:20px;">
+
+            <div id="title" style="border-radius: 5px;margin-left: 10px ;border: none;height: 30px; width:500px; font-size:30px; text-align: center; font-weight: bold;"
+                 th:text="${commentsMemo.getTitle()}"></div>
+            <div style="border-radius: 5px;margin-left: 10px ;margin-bottom: 15px;border: none;height: 20px; width:500px; font-size:20px; font-weight: 200;display: inline-block;">
+                <div ><span th:text="${memo_writername}"></span>님의 글</div>
+            </div>
+
+            <div th:text="${commentsMemo.getContents()}"  id="view_contents"></div>
+            <!--            <button class="btn btn-danger" onclick="writePost()">작성하기</button>-->
+            <!--            <img src="../images/send.png" alt="" onclick="writePost()">-->
+        </div>
+        <div id="comments_box" class="area-read">
+            <div class="area-write" style="box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); background-color: #ffffff;border-radius: 5px; border: none;">
+                <textarea class="field2" placeholder="댓글을 작성해주세요" name="contents" id="user_comment" cols="30" rows="10" ></textarea>
+                <img src="../images/send.png" alt="" th:onclick="|add_comments(${commentsMemo.getId()})|">
+            </div>
+            <div class="users_comments" id="users_comments" style="margin-top: 15px;">
+                <div class="card" style="box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);">
+                    <!-- date/username 영역 -->
+                    <div class="metadata" style="margin-bottom: 10px;">
+                        <div class="username" style="margin-right: 5px;">
+                            댓글 작성자
+                        </div>
+                    </div>
+                    <!-- contents 조회/수정 영역-->
+
+                    <!-- 버튼 영역-->
+                    <div class="footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+</body>
+
+</html>
